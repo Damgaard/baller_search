@@ -42,6 +42,9 @@ DJANGO_APPS = [
     # Useful template tags:
     # 'django.contrib.humanize',
 
+    # Haystack
+    'haystack',
+
     # Admin
     'django.contrib.admin',
 ]
@@ -56,7 +59,9 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     # custom users app
     'baller_search.users.apps.UsersConfig',
+
     # Your stuff: custom apps go here
+    'baller_search.core.apps.CoreConfig',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
