@@ -7,7 +7,6 @@ Easily find posts by sick Nerd Ballers
      :target: https://github.com/pydanny/cookiecutter-django/
      :alt: Built with Cookiecutter Django
 
-
 Settings
 --------
 
@@ -43,7 +42,7 @@ Running tests with py.test
 
 ::
 
-  $ py.test
+  $ py.test --ignore virtualenv
 
 Live reloading and Sass CSS compilation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -52,14 +51,8 @@ Moved to `Live reloading and SASS compilation`_.
 
 .. _`Live reloading and SASS compilation`: http://cookiecutter-django.readthedocs.io/en/latest/live-reloading-and-sass-compilation.html
 
-
-
-
-
 Deployment
 ----------
 
 The following details how to deploy this application.
-
-
 
