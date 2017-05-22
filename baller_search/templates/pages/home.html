@@ -9,15 +9,27 @@
         {% crispy form %}
 
         {% if query %}
+            <br>
             <h3>Results - {{ paginator.count }} hits</h3>
 
+            <div class="list-group">
+
             {% for result in page_obj.object_list %}
-                <p>
-                    <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
-                </p>
+
+              <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">{{ result.object.score }} {{ result.object.title }}</h5>
+                  <small>{{ result.object.pub_date|timesince }}</small>
+                </div>
+                <p class="mb-1">{{ result.object.teaser }}</p>
+                <small> - Day9</small>
+              </a>
+
             {% empty %}
                 <p>No results found.</p>
             {% endfor %}
+
+            </div>
 
             {% if page_obj.has_previous or page_obj.has_next %}
                 <div>
