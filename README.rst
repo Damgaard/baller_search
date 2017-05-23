@@ -56,3 +56,22 @@ Deployment
 
 The following details how to deploy this application.
 
+
+TODO
+----
+
+The grand list of stuff that needs to be done before project can be publiczed
+
+ - Add Google Analytics
+ - Configure Django Compressor
+ - Include users and links from old post https://www.reddit.com/r/starcraft/comments/nirtb/all_pro_caster_and_baller_created_threads_in/
+ - Initialize on new server via ansible
+ - DONE Shutdown /admin in production
+ - Hide profile/user related views
+ - Add FAQ section (reuse from old Reddit post)
+ - Add better explanation on why to search
+ - DONE Buy domain (hopefully available) :)
+ - Setup SSL
+ - Test on Erics pony checker https://www.ponycheckup.com/
+ - Add `radon cc -anb baller_search config docs requirements utility` to development.
+    If there's non-A grade code it shouldn't be deployed.
