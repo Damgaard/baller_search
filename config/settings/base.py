@@ -44,10 +44,8 @@ DJANGO_APPS = [
 
     # Haystack
     'haystack',
-
-    # Admin
-    'django.contrib.admin',
 ]
+
 THIRD_PARTY_APPS = [
     'crispy_forms',  # Form layouts
     'allauth',  # registration
@@ -271,13 +269,11 @@ LOGIN_URL = 'account_login'
 
 # SLUGLIFIER
 AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
+
 # django-compressor
 # ------------------------------------------------------------------------------
 INSTALLED_APPS += ['compressor']
 STATICFILES_FINDERS += ['compressor.finders.CompressorFinder']
-
-# Location of root django.contrib.admin URL, use {% url 'admin:index' %}
-ADMIN_URL = r'^admin/'
 
 # Your common stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------

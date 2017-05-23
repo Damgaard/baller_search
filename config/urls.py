@@ -9,9 +9,6 @@ urlpatterns = [
     # Core application
     url(r'', include('baller_search.core.urls')),
 
-    # Django Admin, use {% url 'admin:index' %}
-    url(settings.ADMIN_URL, admin.site.urls),
-
     # User management
     url(r'^users/', include('baller_search.users.urls', namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
@@ -36,3 +33,9 @@ if settings.DEBUG:
         urlpatterns = [
             url(r'^__debug__/', include(debug_toolbar.urls)),
         ] + urlpatterns
+
+    if 'django.contrib.admin' in settings.INSTALLED_APPS:
+        # Django Admin, use {% url 'admin:index' %}
+        urlpatterns += [
+            url(settings.ADMIN_URL, admin.site.urls),
+        ]

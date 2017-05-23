@@ -82,9 +82,23 @@ DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TEMPLATE_CONTEXT': True,
 }
 
-# django-extensions
+# Django-extensions
 # ------------------------------------------------------------------------------
-INSTALLED_APPS += ['django_extensions', ]
+INSTALLED_APPS += [
+    'django_extensions',
+]
+
+# Admin (only enabled in Development)
+# ------------------------------------------------------------------------------
+
+INSTALLED_APPS += [
+    # Admin
+    'django.contrib.admin',
+]
+
+# Location of root django.contrib.admin URL, use {% url 'admin:index' %}
+ADMIN_URL = r'^admin/'
+
 
 # TESTING
 # ------------------------------------------------------------------------------
