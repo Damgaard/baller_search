@@ -8,6 +8,7 @@ class NerdBaller(models.Model):
     username = models.CharField(
         _(u"What are they called on Reddit?"),
         max_length=255,
+        unique=True,
     )
 
     known_as = models.CharField(
@@ -40,6 +41,7 @@ class Post(models.Model):
 
     reddit_id = models.CharField(
         max_length=64,
+        unique=True,
     )
 
     permalink = models.CharField(
