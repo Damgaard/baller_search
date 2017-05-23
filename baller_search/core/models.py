@@ -16,6 +16,9 @@ class NerdBaller(models.Model):
         max_length=255,
     )
 
+    def __str__(self):
+        return self.known_as or self.username
+
     # TODO: Consider adding
     #  - external link for more info
     #  - small bio or similar
@@ -58,6 +61,7 @@ class Post(models.Model):
         default=0,
     )
 
+    # TODO: Consider adding subreddit, and excluding some subs
     # TODO: Consider what to do with link posts.
 
     def __unicode__(self):
