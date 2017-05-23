@@ -62,6 +62,7 @@ LOCAL_APPS = [
 
     # Your stuff: custom apps go here
     'baller_search.core.apps.CoreConfig',
+    'baller_search.content_update.apps.ContentUpdateConfig',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -280,3 +281,14 @@ ADMIN_URL = r'^admin/'
 
 # Your common stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
+
+# App settings
+# ------------------------------------------------------------------------------
+
+# ContentUpdate
+# ------------------------------------------------------------------------------
+
+# Must be set to run content_update
+PRAW_CLIENT_ID = env('PRAW_CLIENT_ID', default=None)
+PRAW_CLIENT_SECRET = env('PRAW_CLIENT_SECRET', default=None)
+PRAW_USER_AGENT = env('PRAW_USER_AGENT', default=None)
