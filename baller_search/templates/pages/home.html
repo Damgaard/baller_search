@@ -16,13 +16,13 @@
 
             {% for result in page_obj.object_list %}
 
-              <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+              <a href="https://reddit.com{{ result.object.permalink }}" class="list-group-item list-group-item-action flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">{{ result.object.score }} {{ result.object.title }}</h5>
-                  <small>{{ result.object.pub_date|timesince }}</small>
+                  <h5 class="mb-1">{{ result.score_f }} {{ result.object.title }}</h5>
+                  <small>{{ result.pub_date|timesince }}</small>
                 </div>
                 <p class="mb-1">{{ result.object.teaser }}</p>
-                <small> - Day9</small>
+                <small> - {{ result.object.nerdballer.known_as|default:result.object.nerdballer.username }}</small>
               </a>
 
             {% empty %}
