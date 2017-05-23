@@ -10,9 +10,6 @@ from ...utils import get_reddit_instance
 from core.models import NerdBaller
 
 
-# Commonly used descriptions, that are actually misnormers
-IGNORED_KNOWN_AS = ["observer", ]
-
 class Command(BaseCommand):
 
     help = "Create Starcraft NerdBaller list from Wiki Page."
@@ -23,20 +20,15 @@ class Command(BaseCommand):
     # rewrite this if the page happens to be completely rewritten.
 
     def handle(self, *args, **options):
-
         reddit = get_reddit_instance()
-
         wikipage = reddit.subreddit('starcraft').wiki['verified_users']
-
-        known_as_regex = re.compile("\[(.*?)\]\(.*?\)")
 
         # Bit hacky way to get the table of NerdBallers
         table = wikipage.content_md.split(":---|:---|:---")[1].strip()
         rows = table.split("\n")
 
         for row in tqdm(rows):
-            row = row.strip()
-            cells = row.split("|")
+            cells = row.strip().split("|")
 
             assert(len(cells) == 3)
 
@@ -44,31 +36,37 @@ class Command(BaseCommand):
             if username.startswith("/u/"):
                 username = username[3:]
 
-            if NerdBaller.objects.filter(username__iexact=username).exists():
-                continue
-
             # Check user actually exists
             try:
                 reddit.redditor(username).link_karma
             except Exception:
                 continue
 
-            links = known_as_regex.findall(description)
-
-            if len(links) > 1:
-                known_as = ""
-            elif len(links) == 1:
-                known_as = links[0]
-            else:
-                known_as = description
-
-            if len(known_as.split()) > 1:
-                known_as = ""
-
-            if known_as.lower() in IGNORED_KNOWN_AS:
-                known_as = ""
-
-            NerdBaller.objects.create(
+            NerdBaller.objects.get_or_create(
                 username=username,
-                known_as=known_as,
+                known_as=self.extract_known_as(description),
             )
+
+    def extract_known_as(self, description):
+        # Commonly used descriptions, that are actually misnormers
+        ignored_known_as = ["observer", ]
+
+        known_as_regex = re.compile("\[(.*?)\]\(.*?\)")
+        links = known_as_regex.findall(description)
+
+        if len(links) > 1:
+            known_as = ""
+        elif len(links) == 1:
+            known_as = links[0]
+        else:
+            known_as = description
+
+        # Known usernames are singleword, so if the remaining description
+        # is more than one word it is obviously not what they are known as.
+        if len(known_as.split()) > 1:
+            known_as = ""
+
+        if known_as.lower() in ignored_known_as:
+            known_as = ""
+
+        return known_as
