@@ -9,10 +9,6 @@ urlpatterns = [
     # Core application
     url(r'', include('baller_search.core.urls')),
 
-    # User management
-    url(r'^users/', include('baller_search.users.urls', namespace='users')),
-    url(r'^accounts/', include('allauth.urls')),
-
     # Your stuff: custom urls includes go here
     url(r'^search/', include('haystack.urls')),
 

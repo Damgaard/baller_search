@@ -1,26 +1,13 @@
-from django.conf.urls import url
+"""Urls.
 
-from . import views
+This is intentionally empty. The application does not need users to work and
+is not a user focused application. Therefore allowing user related views is
+nothing but wasteful code and potential attack points.
+
+If a user needs to be created to look at the admin in development, then this
+can be done via the commandline.
+
+"""
 
 urlpatterns = [
-    url(
-        regex=r'^$',
-        view=views.UserListView.as_view(),
-        name='list'
-    ),
-    url(
-        regex=r'^~redirect/$',
-        view=views.UserRedirectView.as_view(),
-        name='redirect'
-    ),
-    url(
-        regex=r'^(?P<username>[\w.@+-]+)/$',
-        view=views.UserDetailView.as_view(),
-        name='detail'
-    ),
-    url(
-        regex=r'^~update/$',
-        view=views.UserUpdateView.as_view(),
-        name='update'
-    ),
 ]
