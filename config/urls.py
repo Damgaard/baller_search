@@ -33,5 +33,5 @@ if settings.DEBUG:
     if 'django.contrib.admin' in settings.INSTALLED_APPS:
         # Django Admin, use {% url 'admin:index' %}
         urlpatterns += [
-            url(settings.ADMIN_URL, admin.site.urls),
+            url(r'admin/', admin.site.urls),
         ]
