@@ -152,6 +152,17 @@ CACHES = {
     }
 }
 
+# Haystack
+# ------------------------------------------------------------------------------
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': env('HAYSTACK_URL'),
+        'INDEX_NAME': 'haystack',
+    },
+}
+
 
 # LOGGING CONFIGURATION
 # ------------------------------------------------------------------------------
