@@ -272,6 +272,7 @@ AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
 
 # django-compressor
 # ------------------------------------------------------------------------------
+
 INSTALLED_APPS += ['compressor']
 STATICFILES_FINDERS += ['compressor.finders.CompressorFinder']
 

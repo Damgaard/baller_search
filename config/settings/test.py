@@ -38,6 +38,15 @@ CACHES = {
     }
 }
 
+# Haystack configuration
+# ------------------------------------------------------------------------------
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+    'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+    },
+}
+
 # TESTING
 # ------------------------------------------------------------------------------
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
