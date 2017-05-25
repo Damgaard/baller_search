@@ -92,18 +92,22 @@ MEDIA_URL = 'https://s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
 # Static Assets
 # ------------------------
 
-STATIC_URL = 'https://s3.amazonaws.com/%s/static/' % AWS_STORAGE_BUCKET_NAME
+# Weirdly, we have to include the port number to make django-compressor work
+STATIC_URL = 'https://s3.amazonaws.com:443/%s/static/' % AWS_STORAGE_BUCKET_NAME
 STATICFILES_STORAGE = 'config.settings.production.StaticRootS3BotoStorage'
 # See: https://github.com/antonagestam/collectfast
 # For Django 1.7+, 'collectfast' should come before
 # 'django.contrib.staticfiles'
 AWS_PRELOAD_METADATA = True
 INSTALLED_APPS = ['collectfast', ] + INSTALLED_APPS
+
 # COMPRESSOR
 # ------------------------------------------------------------------------------
 COMPRESS_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 COMPRESS_URL = STATIC_URL
+COMPRESS_OFFLINE = True
 COMPRESS_ENABLED = env.bool('COMPRESS_ENABLED', default=True)
+
 # EMAIL
 # ------------------------------------------------------------------------------
 DEFAULT_FROM_EMAIL = env('DJANGO_DEFAULT_FROM_EMAIL',

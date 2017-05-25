@@ -60,7 +60,7 @@ TODO
 The grand list of stuff that needs to be done before project can be publiczed
 
  - Add Google Analytics
- - Configure Django Compressor
+ - DONE Configure Django Compressor
  - Include users and links from old post https://www.reddit.com/r/starcraft/comments/nirtb/all_pro_caster_and_baller_created_threads_in/
  - Initialize on new server via ansible
  - DONE Shutdown /admin in production
