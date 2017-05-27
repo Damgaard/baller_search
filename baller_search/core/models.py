@@ -64,5 +64,5 @@ class Post(models.Model):
     # TODO: Consider adding subreddit, and excluding some subs
     # TODO: Consider what to do with link posts.
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title

@@ -1,5 +1,5 @@
 [run]
 include = baller_search/*
-omit = *migrations*, *tests*
+omit = *migrations*, *tests*, *__init__.py, *templates/*
 plugins =
     django_coverage_plugin
