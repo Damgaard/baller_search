@@ -13,7 +13,7 @@ class MySearchView(SearchView):
     def get_queryset(self):
         queryset = super(MySearchView, self).get_queryset()
         # further filter queryset based on some set of criteria
-        return queryset.order_by('-score_f')
+        return queryset.order_by('-score_i')
 
     def get_context_data(self, *args, **kwargs):
         context = super(MySearchView, self).get_context_data(*args, **kwargs)
