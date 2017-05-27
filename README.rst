@@ -65,7 +65,7 @@ The grand list of stuff that needs to be done before project can be publiczed
  - Initialize on new server via ansible
  - DONE Shutdown /admin in production
  - DONE Nuke profile/user related views
- - Add FAQ section (reuse from old Reddit post)
+ - DONE Add about section (reuse from old Reddit post)
  - Add better explanation on why to search
  - DONE Buy domain (hopefully available) :)
  - Setup SSL

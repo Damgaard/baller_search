@@ -1,1 +1,44 @@
 {% extends "base.html" %}
+
+{% block content %}
+<h2>About Baller Search</h2>
+
+<p>Once Catzpajamas posted a very interesting post and I almost missed
+it. I thought that if I missed this, then surely I must have missed other
+awesome stuff. This was unacceptable!! So I went into my coding bunker and
+wrote a scraper to find every thread ever created by a Pro,
+Caster or assorted Sick Nerd Baller on /r/starcraft.</p>
+
+<p>That happened 4 years ago and the result ago can be found <a href="https://www.reddit.com/r/starcraft/comments/nirtb/all_pro_caster_and_baller_created_threads_in/">in this reddit thread.</a> It was pretty great content. Though since it was in one big clump, it was pretty hard to filter or get an overview. I've gone back, rebuilt the data and built a website around it. Now it should be a lot easier to find the cool posts!
+</p>
+
+<h3>Why not use /top of the starcraft subreddit?</h3>
+
+<p>It's pretty neat as well ( <a href="https://www.reddit.com/r/starcraft/top/">go check it out</a> ). But it's also got some problems that made me build my own</p>
+
+<ul>
+  <li>It's ONLY for /r/starcraft, so all the cool AMAs and other content made on other subreddits aren't found.</li>
+ <li>A lot of noise. Memes and similar hiding quality.</li>
+ <li>Not showing great content from the beginning when posts got a lot less upvotes.</li>
+ <li>Reddit search is generally pretty bad. This way I know it will be better or I will only have myself to blame.</li>
+</ul>
+
+<h3>How did you select the NerdBallers?</h3>
+
+<p>Originally I used the submissions made by /r/starcraft's mods on verified Personalities, Industi Insiders and Casters & Commentators. Those submissions have since been deleted and replaced by a wiki page of 105 <a>verified users</u>. This list is a lot smaller though, it only includes users that are both active and very noteworthy.</p>
+
+<p>I have tried to recreate the original lists, combined that with the new list and added a couple that I thought where missing to get the final list. You can see the full <a>list of NerdBallers </a> here if you want the detailed view.</a> </p>
+
+<h3>Shoutouts?</h3>
+
+<p>Thanks to everybody who participated in the starcraft scene, whether you were a
+player, caster, commentator, staff or just a viewer like me. We've never met,
+but you've had a positive effect on my life and I truly appreciate it.</p>
+
+<p>Thanks to the mods of /r/starcraft that do a thankless job of
+keeping down the spam and compiled the lists of verified users. Without their work,
+I could never have created this website.</p>
+
+<p>Thanks to Blizzard for creating Starcraft. It's a great game that's brought me lots of fun :)</p>
+
+{% endblock %}
