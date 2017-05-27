@@ -53,22 +53,40 @@ Deployment
 
 The following details how to deploy this application.
 
-
 TODO
 ----
 
 The grand list of stuff that needs to be done before project can be publiczed
 
- - Add Google Analytics
- - DONE Configure Django Compressor
- - Include users and links from old post https://www.reddit.com/r/starcraft/comments/nirtb/all_pro_caster_and_baller_created_threads_in/
- - Initialize on new server via ansible
- - DONE Shutdown /admin in production
- - DONE Nuke profile/user related views
+Content
+^^^^^^^
+
  - DONE Add about section (reuse from old Reddit post)
- - Add better explanation on why to search
+ - DONE Nuke profile/user related views
+ - Include users and links from old post https://www.reddit.com/r/starcraft/comments/nirtb/all_pro_caster_and_baller_created_threads_in/
+ - Add better explanation on why to search and suggestions
+ - Add whitelisting/blacklisting of domains to prevent popular non-starcraft
+    stuff showing up.
+
+General Web
+^^^^^^^^^^^
+
+ - DONE Configure Django Compressor
+ - DONE Shutdown /admin in production
+ - Cookie Warning
+ - Google Analytics
+ - Add robots and sitemap
+ - Check if any modules need upgrading
+ - Switch pip out with pip-tools
+
+Server && Deploy
+^^^^^^^^^^^^^^^^
+
  - DONE Buy domain (hopefully available) :)
+ - Add nginx/uwsgi config files to repo
  - Setup SSL
- - Test on Erics pony checker https://www.ponycheckup.com/
+ - Verify A+ SSL rating on https://www.ssllabs.com/ssltest/analyze.html?d=baller-search.com
+ - Verify Django Security Erics pony checker https://www.ponycheckup.com/
+ - Initialize on new server via ansible
  - Add `radon cc -anb baller_search config docs requirements utility` to development.
     If there's non-A grade code it shouldn't be deployed.
