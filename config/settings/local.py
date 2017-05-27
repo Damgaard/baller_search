@@ -26,7 +26,6 @@ SECRET_KEY = env('DJANGO_SECRET_KEY', default='XY-X7%XN~y2:~j!mcI(N?C:i9#n]8l{oE
 # ------------------------------------------------------------------------------
 
 EMAIL_PORT = 1025
-
 EMAIL_HOST = 'localhost'
 EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND',
                     default='django.core.mail.backends.console.EmailBackend')
@@ -95,9 +94,6 @@ INSTALLED_APPS += [
     # Admin
     'django.contrib.admin',
 ]
-
-# Location of root django.contrib.admin URL, use {% url 'admin:index' %}
-ADMIN_URL = r'^admin/'
 
 
 # TESTING

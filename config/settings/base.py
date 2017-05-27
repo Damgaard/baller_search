@@ -30,6 +30,7 @@ if READ_DOT_ENV_FILE:
 
 # APP CONFIGURATION
 # ------------------------------------------------------------------------------
+
 DJANGO_APPS = [
     # Default Django apps:
     'django.contrib.auth',
@@ -42,16 +43,13 @@ DJANGO_APPS = [
 
     # Useful template tags:
     # 'django.contrib.humanize',
-
-    # Haystack
-    'haystack',
 ]
 
 THIRD_PARTY_APPS = [
     'crispy_forms',  # Form layouts
-    'allauth',  # registration
-    'allauth.account',  # registration
-    'allauth.socialaccount',  # registration
+
+    # Search
+    'haystack',
 
     # robots.txt via django-robots
     'robots',
@@ -72,6 +70,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 # MIDDLEWARE CONFIGURATION
 # ------------------------------------------------------------------------------
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -84,6 +83,7 @@ MIDDLEWARE = [
 
 # MIGRATIONS CONFIGURATION
 # ------------------------------------------------------------------------------
+
 MIGRATION_MODULES = {
     'sites': 'baller_search.contrib.sites.migrations'
 }
@@ -91,22 +91,26 @@ MIGRATION_MODULES = {
 # DEBUG
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
+
 DEBUG = env.bool('DJANGO_DEBUG', False)
 
 # FIXTURE CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-FIXTURE_DIRS
+
 FIXTURE_DIRS = (
     str(APPS_DIR.path('fixtures')),
 )
 
 # EMAIL CONFIGURATION
 # ------------------------------------------------------------------------------
+
 EMAIL_BACKEND = env('DJANGO_EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
 
 # MANAGER CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
+
 ADMINS = [
     ("""Andreas Damgaard Pedersen""", 'andreas.damgaard.p@gmail.com'),
 ]
@@ -117,6 +121,7 @@ MANAGERS = ADMINS
 # DATABASE CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
+
 DATABASES = {
     'default': env.db('DATABASE_URL'),
 }
@@ -149,6 +154,7 @@ USE_TZ = True
 # TEMPLATE CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#templates
+
 TEMPLATES = [
     {
         # See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-TEMPLATES-BACKEND
@@ -221,6 +227,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # PASSWORD STORAGE SETTINGS
 # ------------------------------------------------------------------------------
+
 # See https://docs.djangoproject.com/en/dev/topics/auth/passwords/#using-argon2-with-django
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.Argon2PasswordHasher',
@@ -251,19 +258,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # AUTHENTICATION CONFIGURATION
 # ------------------------------------------------------------------------------
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
-
-# Some really nice defaults
-ACCOUNT_AUTHENTICATION_METHOD = 'username'
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-
-ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
-ACCOUNT_ADAPTER = 'baller_search.users.adapters.AccountAdapter'
-SOCIALACCOUNT_ADAPTER = 'baller_search.users.adapters.SocialAccountAdapter'
 
 # Custom user app defaults
 # Select the correct user model
