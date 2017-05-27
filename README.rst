@@ -75,7 +75,8 @@ General Web
  - DONE Shutdown /admin in production
  - Cookie Warning
  - Google Analytics
- - Add robots and sitemap
+ - DONE Add sitemap.xml
+ - Add robots.txt
  - Check if any modules need upgrading
  - Switch pip out with pip-tools
 
