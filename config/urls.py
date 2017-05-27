@@ -21,8 +21,10 @@ urlpatterns = [
     # Your stuff: custom urls includes go here
     url(r'^search/', include('haystack.urls')),
 
+    # Special root-level files
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
-            name='django.contrib.sitemaps.views.sitemap')
+             name='django.contrib.sitemaps.views.sitemap'),
+    url(r'^robots\.txt', include('robots.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

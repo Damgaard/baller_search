@@ -76,7 +76,7 @@ General Web
  - Cookie Warning
  - Google Analytics
  - DONE Add sitemap.xml
- - Add robots.txt
+ - DONE Add robots.txt
  - Check if any modules need upgrading
  - Switch pip out with pip-tools
 

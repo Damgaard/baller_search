@@ -60,3 +60,6 @@ elasticsearch==2.4.1
 # Content Update
 tqdm==4.11.2
 praw==4.5.1
+
+# Robots.txt
+django-robots==3.0
