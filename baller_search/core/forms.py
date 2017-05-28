@@ -18,6 +18,7 @@ class PostForm(SearchForm):
             )
         )
         super(PostForm, self).__init__(*args, **kwargs)
+        self.fields['q'].widget.attrs.update({'autofocus': 'autofocus'})
 
     def search(self):
         # First, store the SearchQuerySet received from other processing.
