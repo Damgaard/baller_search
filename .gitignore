@@ -67,3 +67,7 @@ staticfiles/
 
 .cache/
 
+# App stuff
+###########
+
+blacklisted_subs.txt
