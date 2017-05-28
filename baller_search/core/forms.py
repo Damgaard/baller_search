@@ -8,6 +8,7 @@ class PostForm(SearchForm):
 
     def __init__(self, *args, **kwargs):
         self.helper = FormHelper()
+        self.helper.disable_csrf = True
         self.helper.layout = Layout(
             Fieldset(
             'Make a query! Find baller posts!',
