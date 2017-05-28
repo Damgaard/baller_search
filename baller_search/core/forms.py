@@ -11,15 +11,18 @@ class PostForm(SearchForm):
         self.helper.disable_csrf = True
         self.helper.layout = Layout(
             Fieldset(
-            'Make a query! Find baller posts!',
+            '',
             'q',
             ),
             ButtonHolder(
-                Submit('submit', 'Submit', css_class='button white')
+                Submit('submit', 'Submit', css_class='button white btn-lg')
             )
         )
         super(PostForm, self).__init__(*args, **kwargs)
-        self.fields['q'].widget.attrs.update({'autofocus': 'autofocus'})
+        self.fields['q'].widget.attrs.update(
+            {'autofocus': 'autofocus',
+             'placeholder': 'AMA'
+            })
 
     def search(self):
         # First, store the SearchQuerySet received from other processing.
