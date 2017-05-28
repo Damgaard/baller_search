@@ -22,7 +22,7 @@
                   <small>{{ result.pub_date|timesince }}</small>
                 </div>
                 <p class="mb-1">{{ result.object.teaser }}</p>
-                <small> - {{ result.object.nerdballer.known_as|default:result.object.nerdballer.username }}</small>
+                <small> - {{ result.object.nerdballer.known_as|default:result.object.nerdballer.username }}{% if result.object.nerdballer.description %}, {{ result.object.nerdballer.description }}{% endif %}</small>
               </a>
 
             {% empty %}

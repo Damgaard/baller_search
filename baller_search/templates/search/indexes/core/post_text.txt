@@ -1,4 +1,6 @@
 {{ object.title }}
 {{ object.teaser }}
+{{ object.subreddit }}
 {{ object.nerdballer.username }}
 {{ object.nerdballer.known_as }}
+{{ object.nerdballer.description }}

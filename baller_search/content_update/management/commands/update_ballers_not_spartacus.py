@@ -42,17 +42,17 @@ class Command(BaseCommand):
 
         return combined
 
-    def get_texts(self, submission, username):
+    def get_texts(self, reddit, submission, username):
         """Extract all texts to this submission by author of that username"""
         # TODO: Consider making this a utility function
-        reddit = get_reddit_instance()
         submission = reddit.submission(submission)
         not_spartacus = reddit.redditor(username)
 
         return [submission.selftext] + [comment.body for comment in submission.comments if comment.author == not_spartacus]
 
     def handle(self, *args, **options):
-        texts = self.get_texts(submission='lurc5', username="NotSpartacus")
+        reddit = get_reddit_instance()
+        texts = self.get_texts(reddit=reddit, submission='lurc5', username="NotSpartacus")
 
         ballers = []
         for text in texts:

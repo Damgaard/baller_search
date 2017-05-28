@@ -13,9 +13,12 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
+        # TODO: Add updating functionality
+
         reddit = get_reddit_instance()
 
         for nerdballer in tqdm(NerdBaller.objects.all()):
+
             redditor = reddit.redditor(nerdballer.username)
 
             for post in redditor.submissions.new(limit=1000):
@@ -32,7 +35,7 @@ class Command(BaseCommand):
                     pub_date=pub_date,
                     reddit_id=post.id,
                     score=post.score,
-                    subreddit=post.subreddit.display_name,
+                    subreddit=post.subreddit.display_name.lower(),
                     teaser=shorten_text(post.selftext),
                     title=shorten_text(post.title),
                 )
