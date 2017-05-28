@@ -6,7 +6,7 @@ from django.utils import timezone
 from tqdm import tqdm
 import praw
 
-from ...utils import get_reddit_instance
+from ...utils import clean_username, get_reddit_instance
 from core.models import NerdBaller
 
 
@@ -33,8 +33,7 @@ class Command(BaseCommand):
             assert(len(cells) == 3)
 
             username, description, category = cells
-            if username.startswith("/u/"):
-                username = username[3:]
+            username = clean_username(username)
 
             # Check user actually exists
             try:
