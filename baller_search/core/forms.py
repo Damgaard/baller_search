@@ -28,7 +28,7 @@ class PostForm(SearchForm):
         # First, store the SearchQuerySet received from other processing.
         sqs = super(PostForm, self).search()
 
-        if self.cleaned_data['q'].lower() == "all":
+        if self.cleaned_data['q'].lower() in ["", "all"]:
             return SearchQuerySet().all().order_by('-score_i')
 
         if not self.is_valid():

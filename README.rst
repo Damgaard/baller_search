@@ -64,7 +64,7 @@ Content
  - DONE Add about section (reuse from old Reddit post)
  - DONE Nuke profile/user related views
  - DONE Include users from NotSpartacus post https://www.reddit.com/r/starcraft/comments/lurc5/a_list_of_community_members_reddit_and_twitter/
- - Add better explanation on why to search and suggestions
+ - DONE Add better explanation on why to search and suggestions
  - DONE Add whitelisting/blacklisting of domains to prevent popular non-starcraft
     stuff showing up.
 

@@ -9,10 +9,11 @@
     {% include 'snippets/suggestions.html' %}
 
     <form method="get" action="{% url 'search' %}">
+
         {% crispy form %}
 
-        {% if query %}
-            <br>
+        <br>
+        {% if page_obj.object_list %}
             <h3>Results - {{ paginator.count }} hits</h3>
 
             <div class="list-group">
@@ -45,7 +46,7 @@
             <br>
             {% endif %}
         {% else %}
-            {# Show some example queries to run, maybe query syntax, something else? #}
+            <p>I couldn't find anything for your query :(</p>
         {% endif %}
     </form>
 {% endblock %}
