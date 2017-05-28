@@ -3,46 +3,31 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <h2>Search</h2>
 
-    <form method="get" action=".">
-        {% crispy form %}
+    <div class="jumbotron">
+      <h1 class="display-3">Baller Search!</h1>
+      <p class="lead">I hate missing out posts by sick Nerd Ballers of Starcrafts. So built a tool to find the submissions, no matter what subreddit they are made to.</p>
+      <hr class="my-4">
+      {% include 'snippets/suggestions.html' %}
+      <p class="lead">
+        <form method="get" action="{% url 'search' %}">
+           {% crispy form %}
+        </form>
+      </p>
+    </div>
 
-        {% if query %}
-            <br>
-            <h3>Results - {{ paginator.count }} hits</h3>
+    <section>
 
-            <div class="list-group">
+      <h3>The longer story...</h3>
 
-            {% for result in page_obj.object_list %}
+        <p>Once Catzpajamas posted a very interesting post and I almost missed
+        it. I thought that if I missed this, then surely I must have missed other
+        awesome stuff. This was unacceptable!! So I went into my coding bunker and
+        wrote a scraper to find every thread ever created by a Pro,
+        Caster or assorted Sick Nerd Baller on /r/starcraft.</p>
 
-              <a href="https://reddit.com{{ result.object.permalink }}" class="list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">{{ result.score_i }} {{ result.object.title }}</h5>
-                  <small>{{ result.pub_date|timesince }}</small>
-                </div>
-                <p class="mb-1">{{ result.object.teaser }}</p>
-                <small> - {{ result.object.nerdballer.known_as|default:result.object.nerdballer.username }}{% if result.object.nerdballer.description %}, {{ result.object.nerdballer.description }}{% endif %}</small>
-              </a>
+        <p>It gives a cool view into starcraft from the perspectives of those who
+        were in the thick of it.</p>
 
-            {% empty %}
-                <p>No results found.</p>
-            {% endfor %}
-
-            </div>
-
-            {% if page_obj.has_previous or page_obj.has_next %}
-            <br>
-                <div>
-                    {% if page_obj.has_previous %}<a href="?q={{ query }}&amp;page={{ page_obj.previous_page_number }}">{% endif %}&laquo; Previous{% if page_obj.has_previous %}</a>{% endif %}
-                    |
-                    {% if page_obj.has_next %}<a href="?q={{ query }}&amp;page={{ page_obj.next_page_number }}">{% endif %}Next &raquo;{% if page_obj.has_next %}</a>{% endif %}
-                </div>
-            <br>
-            <br>
-            {% endif %}
-        {% else %}
-            {# Show some example queries to run, maybe query syntax, something else? #}
-        {% endif %}
-    </form>
+    </section>
 {% endblock %}
