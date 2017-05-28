@@ -6,7 +6,7 @@ from django.utils import timezone
 from tqdm import tqdm
 import praw
 
-from ...utils import clean_username, get_reddit_instance
+from ...utils import clean_username, get_reddit_instance, redditor_exists
 from core.models import NerdBaller
 
 
@@ -35,10 +35,7 @@ class Command(BaseCommand):
             username, description, category = cells
             username = clean_username(username)
 
-            # Check user actually exists
-            try:
-                reddit.redditor(username).link_karma
-            except Exception:
+            if not redditor_exists(username=username, reddit=reddit):
                 continue
 
             NerdBaller.objects.get_or_create(

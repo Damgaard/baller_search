@@ -24,6 +24,23 @@ def clean_username(username):
     return username.strip().strip("/")
 
 
+def redditor_exists(username, reddit=None):
+    """Returns True if that redditor (still) exists."""
+    if reddit is None:
+        reddit = get_reddit_instance()
+
+    redditor = reddit.redditor(username)
+
+    # The Redditor object is fetched lazily for optimization purposes. So
+    # we have to force the fetching of new data to evaluate whether the
+    # user exists or not.
+
+    try:
+        redditor._fetch()
+        return True
+    except:
+        return False
+
 def get_reddit_instance():
     """Return Reddit instance.
 

@@ -6,7 +6,7 @@ from django.utils import timezone
 from tqdm import tqdm
 import praw
 
-from ...utils import clean_known_as, clean_username, get_reddit_instance
+from ...utils import clean_known_as, clean_username, get_reddit_instance, redditor_exists
 from ....core.models import NerdBaller
 
 
@@ -60,6 +60,9 @@ class Command(BaseCommand):
 
         for baller in ballers:
             if NerdBaller.objects.filter(username=baller[1]).exists():
+                continue
+
+            if not redditor_exists(username=baller[1], reddit=reddit):
                 continue
 
             NerdBaller.objects.create(
