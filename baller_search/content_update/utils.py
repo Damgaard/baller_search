@@ -6,6 +6,24 @@ from django.core.exceptions import ImproperlyConfigured
 import praw
 
 
+def clean_known_as(text):
+    """Remove stauff that may be around a known as description"""
+    text = text.strip()
+    if not text:
+        return ""
+
+    return text.split()[0]
+
+
+def clean_username(username):
+    """Remove stauff that may be around a username"""
+    if username.startswith("/u/"):
+        username = username[3:]
+
+    # First strip is for whitespace, second for excess tails
+    return username.strip().strip("/")
+
+
 def get_reddit_instance():
     """Return Reddit instance.
 

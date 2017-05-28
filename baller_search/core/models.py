@@ -16,12 +16,18 @@ class NerdBaller(models.Model):
         max_length=255,
     )
 
+    description = models.CharField(
+        _(u"Why is this person a sick Nerd Baller?"),
+        max_length=255,
+        blank=True,
+        null=True,
+    )
+
     def __str__(self):
         return self.known_as or self.username
 
     # TODO: Consider adding
     #  - external link for more info
-    #  - small bio or similar
     #  - score modifier ( So more famous people are shown more prominently )
 
 

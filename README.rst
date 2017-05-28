@@ -63,7 +63,7 @@ Content
 
  - DONE Add about section (reuse from old Reddit post)
  - DONE Nuke profile/user related views
- - Include users and links from old post https://www.reddit.com/r/starcraft/comments/nirtb/all_pro_caster_and_baller_created_threads_in/
+ - DONE Include users from NotSpartacus post https://www.reddit.com/r/starcraft/comments/lurc5/a_list_of_community_members_reddit_and_twitter/
  - Add better explanation on why to search and suggestions
  - Add whitelisting/blacklisting of domains to prevent popular non-starcraft
     stuff showing up.
