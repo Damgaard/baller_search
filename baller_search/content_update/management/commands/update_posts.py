@@ -4,7 +4,7 @@ from django.utils import timezone
 from tqdm import tqdm
 
 from ...utils import get_reddit_instance, shorten_text
-from core.models import NerdBaller, Post
+from ....core.models import NerdBaller, Post
 
 
 class Command(BaseCommand):
@@ -32,6 +32,7 @@ class Command(BaseCommand):
                     pub_date=pub_date,
                     reddit_id=post.id,
                     score=post.score,
+                    subreddit=post.subreddit.display_name,
                     teaser=shorten_text(post.selftext),
                     title=shorten_text(post.title),
                 )

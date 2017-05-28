@@ -38,6 +38,11 @@ class Post(models.Model):
         'NerdBaller',
     )
 
+    subreddit = models.CharField(
+        _(u"The subreddit where this submission was posted"),
+        max_length=255,
+    )
+
     title = models.CharField(
         max_length=255,
     )
@@ -67,7 +72,6 @@ class Post(models.Model):
         default=0,
     )
 
-    # TODO: Consider adding subreddit, and excluding some subs
     # TODO: Consider what to do with link posts.
 
     def __str__(self):
