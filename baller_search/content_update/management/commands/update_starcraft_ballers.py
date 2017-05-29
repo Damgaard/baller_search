@@ -7,7 +7,7 @@ from tqdm import tqdm
 import praw
 
 from ...utils import clean_username, get_reddit_instance, redditor_exists
-from core.models import NerdBaller
+from ....core.models import NerdBaller
 
 
 class Command(BaseCommand):
