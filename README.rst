@@ -87,7 +87,5 @@ Server && Deploy
  - DONE Add nginx/uwsgi config files to repo
  - DONE Setup SSL
  - DONE Verify A SSL rating on https://www.ssllabs.com/ssltest/analyze.html?d=baller-search.com
- - Verify Django Security Erics pony checker https://www.ponycheckup.com/
- - Initialize on new server via ansible
- - Add `radon cc -anb baller_search config docs requirements utility` to development.
-    If there's non-A grade code it shouldn't be deployed.
+ - DONE Verify Django Security Erics pony checker https://www.ponycheckup.com/
+ - DONE Initialize on new server via ansible
