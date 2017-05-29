@@ -4,8 +4,9 @@
 # Verified bug on Python 3.5.1
 wheel==0.29.0
 
-# Bleeding edge Django
-django==1.10.7 # pyup: >=1.10,<1.11
+# (Almost) Bleeding edge Django
+# Haystack cannot support 1.11 yet
+django==1.10.7
 
 # Configuration
 django-environ==0.4.3
@@ -47,7 +48,7 @@ django-haystack==2.6.1
 elasticsearch==2.4.1
 
 # Content Update
-tqdm==4.11.2
+tqdm==4.14.0
 praw==4.5.1
 
 # Robots.txt

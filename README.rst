@@ -77,8 +77,8 @@ General Web
  - Google Analytics
  - DONE Add sitemap.xml
  - DONE Add robots.txt
- - Check if any modules need upgrading
- - Switch pip out with pip-tools
+ - DONE Check if any modules need upgrading
+ - DONE Switch pip out with pip-tools
 
 Server && Deploy
 ^^^^^^^^^^^^^^^^
