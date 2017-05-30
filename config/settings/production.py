@@ -8,6 +8,8 @@ Production Configurations
 
 """
 
+from boto.s3.connection import OrdinaryCallingFormat
+
 from .base import *  # noqa
 
 # SECRET CONFIGURATION
@@ -15,10 +17,6 @@ from .base import *  # noqa
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 # Raises ImproperlyConfigured exception if DJANGO_SECRET_KEY not in os.environ
 SECRET_KEY = env('DJANGO_SECRET_KEY')
-
-# Must be placed after SECRET_KEY is set
-from boto.s3.connection import OrdinaryCallingFormat  # noqa: ignore=E402
-from storages.backends.s3boto import S3BotoStorage  # noqa: ignore=E402
 
 # This ensures that Django will be able to detect a secure connection
 # properly on Heroku.
@@ -81,6 +79,7 @@ AWS_HEADERS = {
 # stored files.
 
 #  See:http://stackoverflow.com/questions/10390244/
+from storages.backends.s3boto import S3BotoStorage  # noqa: ignore=E402
 
 StaticRootS3BotoStorage = lambda: S3BotoStorage(location='static')
 MediaRootS3BotoStorage = lambda: S3BotoStorage(location='media')
