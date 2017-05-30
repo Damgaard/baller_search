@@ -74,7 +74,7 @@ General Web
  - DONE Configure Django Compressor
  - DONE Shutdown /admin in production
  - DONE Cookie Warning
- - Google Analytics
+ - DONE Google Analytics
  - DONE Add sitemap.xml
  - DONE Add robots.txt
  - DONE Check if any modules need upgrading
