@@ -56,7 +56,7 @@ class Command(BaseCommand):
         for text in texts:
             ballers += self.extract_ballers(text)
 
-        for baller in ballers:
+        for baller in tqdm(ballers):
             if NerdBaller.objects.filter(username=baller[1]).exists():
                 continue
 
