@@ -41,6 +41,7 @@ def redditor_exists(username, reddit=None):
     except:
         return False
 
+
 def get_reddit_instance():
     """Return Reddit instance.
 

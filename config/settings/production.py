@@ -9,7 +9,7 @@ Production Configurations
 """
 
 from boto.s3.connection import OrdinaryCallingFormat
-
+from storages.backends.s3boto import S3BotoStorage
 
 from .base import *  # noqa
 
@@ -80,7 +80,7 @@ AWS_HEADERS = {
 # stored files.
 
 #  See:http://stackoverflow.com/questions/10390244/
-from storages.backends.s3boto import S3BotoStorage
+
 StaticRootS3BotoStorage = lambda: S3BotoStorage(location='static')
 MediaRootS3BotoStorage = lambda: S3BotoStorage(location='media')
 DEFAULT_FILE_STORAGE = 'config.settings.production.MediaRootS3BotoStorage'

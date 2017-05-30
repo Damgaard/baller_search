@@ -1,8 +1,5 @@
-from datetime import date
-
 from haystack.generic_views import SearchView
 from .forms import PostForm
-from .models import Post
 
 
 class MySearchView(SearchView):

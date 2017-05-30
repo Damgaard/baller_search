@@ -1,10 +1,8 @@
 import re
 
 from django.core.management.base import BaseCommand
-from django.utils import timezone
 
 from tqdm import tqdm
-import praw
 
 from ...utils import clean_known_as, clean_username, get_reddit_instance, redditor_exists
 from ....core.models import NerdBaller
@@ -48,7 +46,7 @@ class Command(BaseCommand):
         submission = reddit.submission(submission)
         not_spartacus = reddit.redditor(username)
 
-        return [submission.selftext] + [comment.body for comment in submission.comments if comment.author == not_spartacus]
+        return [submission.selftext] + [com.body for com in submission.comments if com.author == not_spartacus]
 
     def handle(self, *args, **options):
         reddit = get_reddit_instance()

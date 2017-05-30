@@ -5,7 +5,6 @@ from django.utils import timezone
 from ...models import Post
 
 
-
 class Command(BaseCommand):
     help = "Generate some fake posts for local testing"
 

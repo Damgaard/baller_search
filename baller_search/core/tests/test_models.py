@@ -1,7 +1,5 @@
 from test_plus.test import TestCase
 
-from django.core.urlresolvers import reverse
-
 from .factories import NerdBallerFactory, PostFactory
 
 

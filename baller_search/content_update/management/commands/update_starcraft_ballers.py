@@ -1,10 +1,8 @@
 import re
 
 from django.core.management.base import BaseCommand
-from django.utils import timezone
 
 from tqdm import tqdm
-import praw
 
 from ...utils import clean_username, get_reddit_instance, redditor_exists
 from ....core.models import NerdBaller

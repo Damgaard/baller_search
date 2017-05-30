@@ -67,7 +67,7 @@ class Post(models.Model):
         _(u"When it was published on Reddit"),
     )
 
-    score= models.IntegerField(
+    score = models.IntegerField(
         _(u"Reddit Score"),
         default=0,
     )

@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from .models import Post, NerdBaller
 
+
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'nerdballer', 'score', 'pub_date')
     ordering = ('-score',)

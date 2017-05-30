@@ -4,6 +4,7 @@ from haystack.query import SearchQuerySet
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, ButtonHolder, Submit
 
+
 class PostForm(SearchForm):
 
     def __init__(self, *args, **kwargs):
@@ -11,8 +12,8 @@ class PostForm(SearchForm):
         self.helper.disable_csrf = True
         self.helper.layout = Layout(
             Fieldset(
-            '',
-            'q',
+                '',
+                'q',
             ),
             ButtonHolder(
                 Submit('submit', 'Submit', css_class='button white btn-lg')
@@ -21,8 +22,8 @@ class PostForm(SearchForm):
         super(PostForm, self).__init__(*args, **kwargs)
         self.fields['q'].widget.attrs.update(
             {'autofocus': 'autofocus',
-             'placeholder': 'AMA'
-            })
+             'placeholder': 'AMA'}
+        )
 
     def search(self):
         # First, store the SearchQuerySet received from other processing.

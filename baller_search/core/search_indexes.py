@@ -1,7 +1,6 @@
 from os import path
 
 from django.conf import settings
-from django.utils import timezone
 
 from haystack import indexes
 
